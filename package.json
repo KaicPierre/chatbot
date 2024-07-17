@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "dialogflow chatbot",
   "main": "server.js",
+  "engines": {
+    "node": "21.6.1"
+  },
   "scripts": {
     "start": "node ./build/server.js",
     "build": "rm -rf build && tsup --out-dir build",
