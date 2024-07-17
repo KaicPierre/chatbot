@@ -4,7 +4,7 @@
   "description": "dialogflow chatbot",
   "main": "server.js",
   "scripts": {
-    "start": "node ./build/server.js",
+    "start": "tsx watch src/server.ts",
     "build": "rm -rf build && tsup --out-dir build",
     "dev": "tsx watch src/server.ts",
     "test": "test"
