@@ -28,7 +28,9 @@ const fastify = Fastify({
     agent.handleRequest(intentMap);
   })
 
-  fastify.listen({ port: 3000 }, function (err, address) {
+  const port: number = +!process.env.PORT
+
+  fastify.listen({ port: port || 3000 }, function (err, address) {
     if (err) {
       fastify.log.error(err)
       process.exit(1)
