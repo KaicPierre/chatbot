@@ -1,0 +1,31 @@
+{
+  "name": "chatbot",
+  "version": "1.0.0",
+  "description": "dialogflow chatbot",
+  "main": "server.js",
+  "scripts": {
+    "start": "node ./build/server.js",
+    "build": "rm -rf build && tsup --out-dir build",
+    "dev": "tsx watch src/server.ts",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "chatbot"
+  },
+  "author": "Kaic Pierre",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/dialogflow-fulfillment": "^0.6.1",
+    "@types/node": "^20.14.11",
+    "tsup": "^8.1.1",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.3"
+  },
+  "dependencies": {
+    "@google-cloud/dialogflow": "^6.7.0",
+    "@swc/core": "^1.6.13",
+    "dialogflow-fulfillment": "^0.6.1",
+    "fastify": "^4.28.1"
+  }
+}
