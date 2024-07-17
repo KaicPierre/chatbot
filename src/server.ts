@@ -4,9 +4,13 @@ const fastify = Fastify({
     logger: true
   })
 
-  fastify.post('/', function (request, reply) {
+
+  fastify.get('/healthcheck', function (request, reply) {
+    reply.send({isHealthy: true})    
+})
+
+  fastify.post('/dialogflow', function (request, reply) {
     const agent = new WebhookClient({request: request, response: reply});
-    reply.send({ hello: 'world' })
 
     function welcome (agent: WebhookClient) {
         agent.add("Olá, seja muito bem vindo!")
