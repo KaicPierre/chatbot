@@ -1,10 +1,11 @@
+import { WebhookClient } from "dialogflow-fulfillment";
 import Fastify from "fastify";
-import { WebhookClient } from "dialogflow-fulfillment"
 const fastify = Fastify({
     logger: true
   })
 
 
+async function bootsrap () {
   fastify.get('/healthcheck', function (request, reply) {
     reply.send({isHealthy: true})    
 })
@@ -28,12 +29,15 @@ const fastify = Fastify({
     agent.handleRequest(intentMap);
   })
 
-  const port: number = +!process.env.PORT
+  const PORT = process.env.PORT || 3000;
 
-  fastify.listen({ port: port || 3000, host: '0.0.0.0'}, function (err, address) {
+  fastify.listen({ port: PORT as number, host: "0.0.0.0"}, function (err, address) {
     if (err) {
       fastify.log.error(err)
       process.exit(1)
-    },
-    // Server is now listening on ${address}
+    }
+    console.log(`Our app is running on port ${ PORT }`)
   })
+}
+
+bootsrap()
